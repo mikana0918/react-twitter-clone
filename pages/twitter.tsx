@@ -1,32 +1,21 @@
 import Timeline from "@/components/pages/twitter/timeline"
+import {ITweet} from "@/types/index"
 
-const api = () => {
-  return {
-    tweets: [
-      {
-        icon: "https://pbs.twimg.com/profile_images/1255543381347852288/LKtzr5w9_400x400.png",
-        tweet: "テストテスト1"
-      },
-      {
-        icon: "https://pbs.twimg.com/profile_images/1255543381347852288/LKtzr5w9_400x400.png",
-        tweet: "テストテスト2"
-      },
-      {
-        icon: "https://pbs.twimg.com/profile_images/1255543381347852288/LKtzr5w9_400x400.png",
-        tweet: "テストテスト3"
-      }
-    ]
-  }
-}
-
-const Twitter = () => {
-  const tweets = api().tweets
-
+function Twitter ({tweets}: {tweets: ITweet[]})  {
   return (
     <>
       <Timeline tweets={tweets}/>
     </>
   )
+}
+
+
+Twitter.getInitialProps = async ()  => {
+  
+  const res = await fetch('/api/twitter')
+  const json = await res.json()
+
+  return { tweets: json }
 }
 
 export default Twitter

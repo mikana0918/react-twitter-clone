@@ -1,5 +1,4 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { string } from 'fp-ts'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
