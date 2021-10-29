@@ -1,0 +1,15 @@
+.container {
+  border: solid 1px white;
+  display: flex;
+  min-height: 120px;
+}
+
+.icon {
+  width: 12%;
+  object-fit: contain;
+}
+
+.tweet {
+  width: 100%;
+  padding: 16px;
+}
